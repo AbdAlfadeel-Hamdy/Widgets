@@ -16,6 +16,7 @@ const Search = () => {
       });
       setResults(data.query.search);
     };
+    if (!term) return;
     search();
   }, [term]);
   const renderedResults = results.map((result) => (
