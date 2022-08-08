@@ -16,12 +16,18 @@ const Search = () => {
       });
       setResults(data.query.search);
     };
-    const timeoutId = setTimeout(() => {
-      if (!term) return;
+
+    if (term && !results.length) {
       search();
-    }, 500);
-    return () => clearTimeout(timeoutId);
+    } else {
+      const timeoutId = setTimeout(() => {
+        if (!term) return;
+        search();
+      }, 1000);
+      return () => clearTimeout(timeoutId);
+    }
   }, [term]);
+
   const renderedResults = results.map((result) => (
     <div key={result.pageid} className="item">
       <div className="right floated content">
