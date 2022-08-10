@@ -28,8 +28,28 @@ const options = [
     value: "blue",
   },
 ];
+const showAccordion = () => {
+  if (window.location.pathname === "/") return <Accordion items={items} />;
+};
+const showSearch = () => {
+  if (window.location.pathname === "/search") return <Search />;
+};
+const showDropdown = () => {
+  if (window.location.pathname === "/dropdown")
+    return <Dropdown options={options} />;
+};
+const showTranslate = () => {
+  if (window.location.pathname === "/translate") return <Translate />;
+};
 const App = () => {
   // const [selected, setSelected] = useState(options[0]);
-  return <Translate />;
+  return (
+    <div>
+      {showAccordion()}
+      {showSearch()}
+      {showDropdown()}
+      {showTranslate()}
+    </div>
+  );
 };
 export default App;
