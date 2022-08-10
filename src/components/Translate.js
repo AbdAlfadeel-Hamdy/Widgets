@@ -8,12 +8,22 @@ const options = [
 ];
 const Translate = () => {
   const [language, selectedLanguage] = useState(options[0]);
+  const [text, setText] = useState("");
   return (
-    <Dropdown
-      options={options}
-      selected={language}
-      onSelectedChange={selectedLanguage}
-    />
+    <div>
+      <div className="ui form">
+        <div className="field">
+          <label>Enter Text</label>
+          <input value={text} onChange={(e) => setText(e.target.value)} />
+        </div>
+      </div>
+      <Dropdown
+        label="Select a Language"
+        options={options}
+        selected={language}
+        onSelectedChange={selectedLanguage}
+      />
+    </div>
   );
 };
 
