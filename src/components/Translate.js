@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Dropdown from "./Dropdown";
-
+import Convert from "./Convert";
+// AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM
 const options = [
   { label: "Afrikaans", value: "af" },
   { label: "Arabic", value: "ar" },
@@ -23,6 +24,9 @@ const Translate = () => {
         selected={language}
         onSelectedChange={selectedLanguage}
       />
+      <hr />
+      <div className="ui header">Output</div>
+      <Convert text={text} language={language} />
     </div>
   );
 };
